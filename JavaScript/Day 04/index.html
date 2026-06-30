@@ -1,0 +1,46 @@
+<script>
+    // let team = ["rohit", "virat", "vaibhav", "hardik", "ashiwn", "jadega"];
+
+
+    // for (let i = 0; i < team.length; i++) {
+    //     console.log(team[i])
+    // }
+
+    // for (let kuchBhi of team) {
+    //     console.log(kuchBhi)
+    // }
+
+    // const array = [10, 20, 30, 5,100];
+    // let sum = 0
+    // for (const num of array) {
+    //     sum = sum + num
+    //     //sum=0+10=10
+    //     //sum=10+20=30
+    //     //sum=30+30=60
+    //     //sum=60+5=65
+    // }
+
+    // console.log(sum)
+
+    const array = [100, 200, 2, 400];
+
+
+    let largest = array[0] //400
+
+    for (const data of array) {
+        //100>100--false
+        //200>100--true
+        //2>200----false
+        //400>200---true
+        if (data < largest) {
+            largest = data
+        }
+
+    }
+
+    console.log(largest)
+
+
+
+
+</script>

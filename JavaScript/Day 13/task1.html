@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show/Hide Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        #formBox {
+            display: none;
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+
+        .close-btn {
+            background-color: red;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="addBtn">Add</button>
+
+    <div id="formBox">
+        <h3>Add User</h3>
+
+        <input type="text" placeholder="Enter Name">
+        <input type="email" placeholder="Enter Email">
+
+        <button class="close-btn" id="closeBtn">Close</button>
+    </div>
+
+    <script>
+        const addBtn = document.getElementById("addBtn");
+        const closeBtn = document.getElementById("closeBtn");
+        const formBox = document.getElementById("formBox");
+
+        addBtn.addEventListener("click", function () {
+            formBox.style.display = "block";
+        });
+
+        closeBtn.addEventListener("click", function () {
+            formBox.style.display = "none";
+        });
+    </script>
+
+</body>
+</html>

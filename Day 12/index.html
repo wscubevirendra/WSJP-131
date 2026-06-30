@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 1100px;
+            height: 500px;
+            border: 2px solid red;
+            margin: auto;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 300px;
+            height: 100px;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 20px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            transition: 0.3s;
+
+        }
+
+        .container:hover .card:nth-child(3) {
+            background-color: gold;
+        }
+
+        
+        .container:hover .card:nth-child(5) {
+            background-color: gold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">1</div>
+        <div class="card">2</div>
+        <div class="card">3</div>
+        <div class="card">4</div>
+        <div class="card">5</div>
+        <div class="card">6</div>
+        <div class="card">7</div>
+        <div class="card">8</div>
+        <div class="card">9</div>
+        <div class="card">10</div>
+        <div class="card">11</div>
+        <div class="card">12</div>
+
+    </div>
+
+</body>
+
+</html>

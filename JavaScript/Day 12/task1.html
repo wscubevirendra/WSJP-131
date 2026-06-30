@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: antiquewhite;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            width: 1000px;
+            padding: 20px;
+        }
+
+        .card {
+            width: 300px;
+            height: 300px;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            font-size: 30px;
+            transition: 300ms;
+
+        }
+
+        button {
+            padding: 10px;
+            font-size: 30px;
+            border: none;
+        }
+
+        .demo {
+            background-color: brown;
+            border-radius: 20px;
+            transform: scale(0.8);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div onclick="styleChange(this)" class="card"> 1</div>
+        <div onclick="styleChange(this)" class="card"> 2</div>
+        <div onclick="styleChange(this)" class="card"> 3</div>
+        <div onclick="styleChange(this)" class="card"> 4</div>
+    </div>
+
+    <script>
+        const cards = document.querySelectorAll(".card");
+
+
+        function styleChange(card) {
+          
+            for (let elem of cards) {
+                elem.classList.remove("demo")
+            }
+
+              card.classList.add("demo")
+
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

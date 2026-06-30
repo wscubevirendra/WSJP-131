@@ -1,0 +1,57 @@
+<script>
+
+    // //Function Decleration
+    // function greet(name) {
+    //     console.log(`My Name is ${name}`)
+    // }
+
+    // greet("Yogesh"); //function calling
+    // greet("Mahesh"); //function calling
+    // greet("Vinay"); //function calling
+
+    //Add two number
+
+    // function findLargest(array) {
+    //     let largest = array[0];
+    //     for (let num of array) {
+    //         if (num > largest) {
+    //             largest = num
+    //         }
+    //     }
+
+
+    //     return largest
+
+    // }
+    // console.log(findLargest([100, 20, 10, 400]))
+    // findLargest([1000, 20, 10, 200])
+    // findLargest([1000, 20, 10, 200])
+
+    //calculater
+
+    function calc(x, y, sign) {
+        let result = "";
+        if (sign === "+") {
+            result = x + y
+        } else if (sign === "-") {
+            result = x - y
+        } else if (sign === "/") {
+            result = x / y
+        } else if (sign === "%") {
+            result = x % y
+        } else {
+            result = "Invalid Input"
+        }
+
+        return result
+    }
+
+
+    console.log(calc(10, 20, "+"))
+    calc(10, 20, "-")
+    calc(100, 20, "++")
+
+
+
+
+</script>

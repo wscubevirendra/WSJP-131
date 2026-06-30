@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            font-family: Arial, sans-serif;
+        }
+
+        .clock-container {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 20px;
+            text-align: center;
+            width: 400px;
+        }
+
+        .clock-container h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        #time-box {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        #weak-container {
+            color: gray;
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+
+        }
+
+        .done {
+            font-weight: bold;
+            color: #764ba2;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="clock-container">
+        <h2>Digital Clock</h2>
+        <p id="time-box">09:19:12</p>
+        <div id="weak-container"></div>
+    </div>
+    <script>
+        const timeBox = document.querySelector("#time-box");
+        const weakContainer = document.querySelector("#weak-container");
+        const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+        function findDay() {
+            const now = new Date();
+        
+            for (let i = 0; i < days.length; i++) {
+                const span = document.createElement("span");
+                if (now.getDay() === i) {
+                    span.classList.add("done")
+                }
+                span.innerText = days[i];
+                weakContainer.append(span)
+            }
+        }
+
+        findDay();
+
+        setInterval(
+            () => {
+                const now = new Date();
+                let h = now.getHours(); //09
+                let m = now.getMinutes();
+                let s = now.getSeconds();
+                h = h < 10 ? "0" + h : h;
+                m = m < 10 ? "0" + m : m;
+                s = s < 10 ? "0" + s : s;
+
+                timeBox.innerHTML = `${h}:${m}:${s}`
+            },
+            1000
+        )
+
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            border: 2px solid red;
+            position: relative;
+        }
+
+        input {
+            width: 600px;
+        }
+
+        .done {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: red;
+            position: absolute;
+            animation: demo 2s infinite linear;
+
+        }
+
+        @keyframes demo {
+            0%{
+                transform: scale(1);
+            }
+            100%{
+                transform: scale(3);
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+
+    </div>
+
+    <input type="text">
+
+    <script>
+        const box = document.querySelector(".box");
+        const input = document.querySelector("input")
+        box.addEventListener("contextmenu", (event) => {
+            event.preventDefault()
+            let x = event.clientX;
+            let y = event.clientY;
+            const dot = document.createElement("div");
+            dot.classList.add("done");
+            dot.style.left = `${x}px`;
+            dot.style.top = `${y}px`;
+
+            box.append(dot)
+            // console.log(dot)
+
+
+
+        })
+
+        input.addEventListener("keyup", (event) => {
+                
+
+            if(event.key=="Enter"){
+                console.log(input.value)
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>

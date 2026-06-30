@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 30px;
+            color: brown;
+        }
+
+        .container {
+            width: 1100px;
+            padding: 10px;
+            /* border: 2px solid red; */
+            margin: 50px auto;
+            overflow: hidden;
+        }
+
+        .slider-top-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        button {
+            border: none;
+            padding: 10px;
+
+        }
+
+        .slider-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .item {
+            width: 250px;
+            height: 250px;
+            flex-shrink: 0;
+            transition: 300ms;
+
+        }
+
+        .item img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="slider-top-section">
+            <h1>Shop groceries on Instamart</h1>
+            <div>
+                <button disabled onclick="prevSlider()">Prev</button>
+                <button onclick="nextSlider()">Next </button>
+            </div>
+        </div>
+        <div class="slider-container">
+            <div class="item">
+                <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/NI_CATALOG/IMAGES/CIW/2024/7/6/76a7104c-0f11-4182-aa51-0d48efc2be7f_aae098f9-aaff-4504-a222-bf13595d58cd"
+                    alt="">
+            </div>
+            <div class="item">
+                <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/NI_CATALOG/IMAGES/CIW/2025/5/14/1a08f110-17b6-4785-92d4-404825b75f2d_869c1986-d9c1-4d46-b1c3-10c79a052a59"
+                    alt="">
+            </div>
+            <div class="item">
+                <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/NI_CATALOG/IMAGES/CIW/2025/5/14/012beae1-c31a-4360-9b32-173080b64652_aa07a04e-5f2e-4c00-86f6-297344906f01"
+                    alt="">
+            </div>
+            <div class="item">
+                <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/NI_CATALOG/IMAGES/CIW/2024/7/6/76a7104c-0f11-4182-aa51-0d48efc2be7f_aae098f9-aaff-4504-a222-bf13595d58cd"
+                    alt="">
+            </div>
+            <div class="item">
+                <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/NI_CATALOG/IMAGES/CIW/2025/5/14/1a08f110-17b6-4785-92d4-404825b75f2d_869c1986-d9c1-4d46-b1c3-10c79a052a59"
+                    alt="">
+            </div>
+            <div class="item">
+                <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/NI_CATALOG/IMAGES/CIW/2025/5/14/1a08f110-17b6-4785-92d4-404825b75f2d_869c1986-d9c1-4d46-b1c3-10c79a052a59"
+                    alt="">
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <script>
+        const items = document.querySelectorAll(".item");
+        const btn = document.querySelectorAll("button");
+        let count = 0
+        const nextSlider = () => {
+            count++
+
+            for (const image of items) {
+                image.style.transform = `translateX(-${count * 300}%)`
+            }
+            btn[0].disabled = false
+        }
+
+
+        const prevSlider = () => {
+            count--
+            if (count == 0) {
+                btn[0].disabled = true
+            }
+            for (const image of items) {
+                image.style.transform = `translateX(-${count * 3nest00}%)`
+            }
+
+
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        .parent {
+            width: 1000px;
+            height: 400px;
+            background-color: black;
+        }
+
+        .row1 {
+            width: 1000px;
+            height: 100px;
+            background-color: green;
+            display: flex;
+        }
+
+        .r1col {
+            width: 200px;
+            height: 100px;
+            background-color: tan;
+            text-align: center;
+        }
+
+        .row2 {
+            width: 1000px;
+            height: 300px;
+            background-color: red;
+            display: flex;
+        }
+
+        .row2-left {
+            width: 250px;
+            height: 300px;
+            background-color: brown;
+        }
+
+        .row2-right {
+            width: 750px;
+            height: 300px;
+            background-color: green;
+        }
+        .section{
+            width: 250px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="row1">
+            <div class="r1col"><a href="#">Home</a></div>
+            <div class="r1col"><a href="#">About</a></div>
+            <div class="r1col"><a href="#">Contact</a></div>
+            <div class="r1col"><a href="#">Gallery</a></div>
+            <div class="r1col"><a href="#">Services</a></div>
+        </div>
+        <div class="row2">
+            <div class="row2-left">
+                <div class="section" style="background-color: aqua;">Section1</div>
+                <div class="section" style="background-color: saddlebrown;">Section2</div>
+                <div class="section">Section3</div>
+
+            </div>
+            <div class="row2-right">
+                <img width="100%" height="100%"
+                    src="https://img.freepik.com/free-photo/lavender-field-sunset-near-valensole_268835-3910.jpg?semt=ais_hybrid&w=740&q=80"
+                    alt="">
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

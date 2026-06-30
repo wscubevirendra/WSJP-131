@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul li {
+            width: 400px;
+            background-color: red;
+            margin: 10px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="todo-container">
+        <input type="text">
+        <ul>
+            <li></li>
+        </ul>
+
+    </div>
+
+    <script>
+        const input = document.querySelector("input");
+        const ul = document.querySelector("ul");
+        input.addEventListener("keyup", (event) => {
+            if (event.key === "Enter") {
+                const value = input.value;
+                const li = document.createElement("li");
+                li.innerText = value;
+                ul.append(li)
+            }
+
+        })
+
+    </script>
+</body>
+
+</html>

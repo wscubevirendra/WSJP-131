@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="myForm">
+        <div>
+            <label for="">principle</label>
+            <input type="text" name="principle">
+        </div>
+        <div>
+            <label for="">rate</label>
+
+            <input type="text" name="rate">
+
+        </div>
+        <div>
+            <label for="">Time</label>
+
+            <input type="text" name="time">
+
+        </div>
+        <p id="display">
+
+        </p>
+
+        <button type="submit">Submit</button>
+
+        <script>
+
+            const myForm = document.querySelector("#myForm");
+            const display = document.querySelector("#display");
+
+            myForm.addEventListener("submit", (event) => {
+                event.preventDefault();
+                let r = event.target.rate.value;
+                let t = event.target.time.value;
+                let p = event.target.principle.value;
+
+            })
+
+        </script>
+
+
+
+    </form>
+
+</body>
+
+</html>

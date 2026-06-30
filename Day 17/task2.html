@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+
+            height: 100vh;
+            background-image: linear-gradient(to bottom, #2980b9, #3498db);
+        }
+
+        .main {
+            width: 100%;
+            height: 100%;
+            /* border: 2px solid red; */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card {
+            box-shadow: inset 0 0 25px rgba(26, 190, 232, 0.4), inset -5px -10px 35px rgba(255, 255, 255, 0.777);
+            border-radius: 50%;
+            position: absolute;
+            bottom: -50%;
+            animation: move infinite linear;
+        }
+
+        .card:nth-child(1) {
+            width: 150px;
+            height: 150px;
+            left: 5%;
+            animation-duration: 5s;
+        }
+
+        .card:nth-child(2) {
+            width: 50px;
+            height: 50px;
+            left: 20%;
+            animation-duration: 2s;
+
+        }
+
+        .card:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            left: 40%;
+            animation-duration: 7s;
+
+        }
+
+        .card:nth-child(4) {
+            width: 80px;
+            height: 80px;
+            left: 60%;
+            animation-duration: 4s;
+
+        }
+
+        .card:nth-child(5) {
+            width: 200px;
+            height: 200px;
+            left: 80%;
+            animation-duration: 3s;
+
+        }
+
+        @keyframes move {
+            0% {
+                transform: translate(200px,0) scale(1);
+            }
+
+            50% {
+                transform: translate(300px,-400px) scale(0.9);
+            }
+
+            100% {
+                transform: translate(100px,-800px) scale(0.4) rotate(360deg) skew(60deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+
+    </div>
+
+</body>
+
+</html>

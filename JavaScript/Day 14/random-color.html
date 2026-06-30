@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            width: 800px;
+            height: 250px;
+            box-shadow: 0px 0px 2px gray;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container">
+
+    </div>
+
+    <script>
+        const container = document.querySelector("#container");
+
+        container.addEventListener("click", () => {
+            let r=Math.floor(Math.random() * 150);
+            let g=Math.floor(Math.random() * 150);
+            let b=Math.floor(Math.random() * 150);
+           container.style.background=`rgb(${r},${g},${b})`;
+        })
+    </script>
+
+</body>
+
+</html>

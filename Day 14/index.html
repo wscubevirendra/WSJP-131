@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .header {
+            width: 100%;
+            height: 82px;
+            background-color: gold;
+            box-shadow: 2px 2px 2px #eee;
+            position: sticky;
+            top: 0;
+            left: 0;
+            z-index: 22222222;
+            margin-bottom: 20px;
+
+
+        }
+
+        .section {
+            width: 1200px;
+            height: 2000px;
+
+            margin: auto;
+            display: flex;
+            gap: 20px;
+        }
+
+        .left {
+            width: 400px;
+            height: 100%;
+            padding: 16px;
+
+            border: 4px solid red;
+        }
+
+        .right {
+            width: 800px;
+            height: 100%;
+            border: 4px solid green;
+            display: flex;
+            padding: 16px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .top {
+
+            height: 500px;
+        }
+
+        .bottom {
+
+            height: 600px;
+            position: sticky;
+            top: 82px;
+            left: 0;
+        }
+
+        .input-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .filter {
+            margin-top: 20px;
+        }
+
+        .color-code {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: gray;
+        }
+
+        .card {
+            width: calc(25% - 10px);
+            background-color: gray;
+            height: 360px;
+        }
+        .card-details{
+            padding: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header"> </div>
+    <section class="section">
+        <div class="left">
+            <div class="top">
+                <div class="filter">
+                    <h2>Categories</h2>
+                    <div class="input-label">
+                        <input type="checkbox">
+                        <label for="">Tshirt</label>
+                        <span>(21232)</span>
+                    </div>
+                    <div class="input-label">
+                        <input type="checkbox">
+                        <label for="">Lounge Tshirts</label>
+                        <span>(21232)</span>
+                    </div>
+                </div>
+                <div class="filter">
+                    <h2>Brand</h2>
+                    <div class="input-label">
+                        <input type="checkbox">
+                        <label for="">U.S. Polo Assn</label>
+                        <span>(2123)</span>
+                    </div>
+                    <div class="input-label">
+                        <input type="checkbox">
+                        <label for="">U.S. Polo Assn</label>
+                        <span>(2123)</span>
+                    </div>
+                    <div class="input-label">
+                        <input type="checkbox">
+                        <label for="">U.S. Polo Assn</label>
+                        <span>(2123)</span>
+                    </div>
+                    <div class="input-label">
+                        <input type="checkbox">
+                        <label for="">U.S. Polo Assn</label>
+                        <span>(2123)</span>
+                    </div>
+                    <div class="input-label">
+                        <input type="checkbox">
+                        <label for="">U.S. Polo Assn</label>
+                        <span>(2123)</span>
+                    </div>
+                    <div class="input-label">
+                        <input type="checkbox">
+                        <label for="">U.S. Polo Assn</label>
+                        <span>(2123)</span>
+                    </div>
+
+
+                </div>
+                <div class="filter">
+                    <h2>Price</h2>
+                    <input type="range" name="" id="">
+                </div>
+
+            </div>
+            <div class="bottom">
+                <div class="filter">
+                    <h2>Colors</h2>
+                    <div class="input-label">
+                        <input type="checkbox">
+                        <div class="color-code"></div>
+                        <label for="">White</label>
+                        <span>(2123)</span>
+                    </div>
+                    <div class="input-label">
+                        <input type="checkbox">
+                        <div class="color-code"></div>
+                        <label for="">White</label>
+                        <span>(2123)</span>
+                    </div>
+                    <div class="input-label">
+                        <input type="checkbox">
+                        <div class="color-code"></div>
+                        <label for="">White</label>
+                        <span>(2123)</span>
+                    </div>
+                    <div class="input-label">
+                        <input type="checkbox">
+                        <div class="color-code"></div>
+                        <label for="">White</label>
+                        <span>(2123)</span>
+                    </div>
+                    <div class="input-label">
+                        <input type="checkbox">
+                        <div class="color-code"></div>
+                        <label for="">White</label>
+                        <span>(2123)</span>
+                    </div>
+                    <div class="input-label">
+                        <input type="checkbox">
+                        <div class="color-code"></div>
+                        <label for="">White</label>
+                        <span>(2123)</span>
+                    </div>
+                    <div class="input-label">
+                        <input type="checkbox">
+                        <div class="color-code"></div>
+                        <label for="">White</label>
+                        <span>(2123)</span>
+                    </div>
+
+                </div>
+                <div class="filter">
+                    <h2>Discount Range</h2>
+                    <div class="input-label">
+                        <input type="radio">
+                        <label for="">10% and above</label>
+
+                    </div>
+                    <div class="input-label">
+                        <input type="radio">
+                        <label for="">10% and above</label>
+
+                    </div>
+                    <div class="input-label">
+                        <input type="radio">
+                        <label for="">10% and above</label>
+
+                    </div>
+                    <div class="input-label">
+                        <input type="radio">
+                        <label for="">10% and above</label>
+
+                    </div>
+                    <div class="input-label">
+                        <input type="radio">
+                        <label for="">10% and above</label>
+
+                    </div>
+                    <div class="input-label">
+                        <input type="radio">
+                        <label for="">10% and above</label>
+
+                    </div>
+                    <div class="input-label">
+                        <input type="radio">
+                        <label for="">10% and above</label>
+
+                    </div>
+                    <div class="input-label">
+                        <input type="radio">
+                        <label for="">10% and above</label>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+        <div class="right">
+            <div class="card">
+                <img width="100%"
+                    src="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/27849830/2024/2/24/26b2c62a-0ab7-43cc-b602-e3a56da642f41708798279352ShoulderPopActiveT-shirt6.jpg"
+                    alt="">
+                <div class="card-details">
+                    <h6>CALT</h6>
+                    <p>Lorem ipsum dolor sit</p>
+                    <div style="display: flex; font-size: 12px; justify-content: space-between;">
+                        <span>Rs 629</span>
+                        <del>Rs.1199</del>
+                        <span>(48% OFF)</span>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>

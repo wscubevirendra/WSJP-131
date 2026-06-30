@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+
+        .card {
+            width: 300px;
+            height: 300px;
+            border: 2px solid green;
+            transition: 1s;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .overlay {
+            width: 50%;
+            height: 100%;
+            position: absolute;
+            transition: 1s;
+
+        }
+
+        .white {
+            top: 0;
+            left: -50%;
+            background-color: rgba(99, 19, 131, 0.6);
+            transition-delay: 900ms;
+        }
+
+        .black {
+            top: 0;
+            right: -50%;
+            background-color: rgba(225, 32, 32, 0.6);
+        }
+
+        .card:hover .white {
+            left: 0;
+        }
+
+        .card:hover .black {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <img src="planet-volumes-8FELip6osY0-unsplash.jpg" alt="">
+        <div class="overlay white"></div>
+        <div class="overlay black"></div>
+    </div>
+</body>
+
+</html>

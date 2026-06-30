@@ -1,0 +1,100 @@
+<script>
+    // const user = {
+    //     name: "Mahesh",
+    //     age: "23",
+    //     father_name: "Ankit Singh",
+    //     city: "Jaipur"
+    // };
+
+    // // student_name=user.name;
+    // // console.log(student_name)
+
+    // const { city } = user;
+    // console.log(city)
+    // const array1 = [10, 20, 40];
+    // const array2 = [10, 20, 40, 100, 200];
+    // const newArray = [...array1, ...array2, 500]
+    // console.log(newArray)
+
+    // let user = {
+    //     name: "Mahesh",
+    //     age: "23",
+    //     father_name: "Ankit Singh",
+    //     city: "Jaipur"
+    // };
+
+    // user = { ...user, rollNo: 23 };
+    // console.log(user)
+
+    const students = [
+        {
+            name: "Amit Sharma",
+            age: 21,
+            city: "Jaipur"
+        },
+        {
+            name: "Rohit Verma",
+            age: 22,
+            city: "Jodhpur"
+        },
+        {
+            name: "Priya Singh",
+            age: 20,
+            city: "Jaipur"
+        },
+        {
+            name: "Neha Rathore",
+            age: 23,
+            city: "Jodhpur"
+        },
+        {
+            name: "Vikas Meena",
+            age: 24,
+            city: "Jaipur"
+        },
+        {
+            name: "Anjali Chauhan",
+            age: 21,
+            city: "Jodhpur"
+        },
+        {
+            name: "Karan Joshi",
+            age: 22,
+            city: "Jaipur"
+        },
+        {
+            name: "Pooja Yadav",
+            age: 19,
+            city: "Jodhpur"
+        },
+        {
+            name: "Rahul Kumar",
+            age: 25,
+            city: "Jaipur"
+        },
+        {
+            name: "Sneha Patel",
+            age: 20,
+            city: "Jaipur"
+        }
+    ];
+
+
+    function countStudent(students, city) {
+        let count = 0
+        for (let st of students) {
+            if (st.city == city) {
+                count++
+            }
+        }
+        console.log(count)
+
+    }
+
+
+    countStudent(students, "Jaipur")
+    countStudent(students, "Jodhpur")
+    countStudent(students, "Kota")
+    console.log()
+
+</script>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: antiquewhite;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            width: 300px;
+            padding: 10px;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            font-size: 30px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 30px;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <button onclick="countHandler('inc')">+</button>
+        <h1 id="count">0</h1>
+        <button onclick="countHandler('dec')">-</button>
+    </div>
+
+    <script>
+        const count = document.querySelector("#count");
+        let sum = 0
+
+        function countHandler(flag) {
+            if (flag == "inc") {
+                sum++
+            } else {
+                sum--
+            }
+
+
+            count.innerText = sum
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<script>
+    //Write a program that checks if it’s raining or not and advises whether to take a raincoat.
+    let rain = false;
+    // let result = rain == true ? "take a raincoat" : "raincoat is not required";
+    // let result = ""
+    // if (rain == true) {
+    //     result = "take a raincoat";
+    // } else {
+    //     result = "raincoat is not required";
+    // }
+
+    // console.log(result)
+
+    // let result = 10 % 2 == 0 ? "Even" : "Odd";
+    // condition ? "true" : "false"
+
+    //Create a program that determines if a CIBIL score is excellent, good, average, or poor based on given ranges.
+
+    //750-900  ---------------Excellent
+    //650-750  ---------------Good
+    //550-650  ---------------Average
+    //300-550  ---------------Poor
+    //>300 and 900>---Invalid
+
+
+    // if (cibil >= 750 && cibil <= 900) {
+    //     //false && true=false
+    //     console.log("Excellent")
+    // } else if (cibil >= 650 && cibil < 750) {
+    //     console.log("Good")
+    // } else if (cibil >= 550 && cibil < 650) {
+    //     console.log("Average")
+    // } else if (cibil >= 300 && cibil < 550) {
+    //     console.log("Poor")
+    // } else {
+    //     console.log("Invalid Cibil Score")
+    // }
+
+    // let cibil = Number(prompt("Enter Your Cibil Score")); //str------Number
+
+    // let result = ""
+    // if (cibil < 300 && cibil > 900) {
+    //     result = "Invalid Cibil Score"
+    // } else if (cibil >= 750) {
+    //     result = "Excellent"
+    // } else if (cibil >= 650) {
+    //     result = "Good"
+    // } else if (cibil >= 550) {
+    //     result = "Average"
+
+    // } else if (cibil >= 300) {
+    //     result = "Poor"
+    // } else {
+    //     result = "Invalid Cibil Score"
+
+    // }
+
+    // alert(result)
+
+    // let password = "ASDASDASD";
+    // const result = password.length >= 7 ? "" : ""
+    //     "Write a program to calculate the electricity bill based on the number of units consumed. Use the following conditions for the tariff rates:
+
+    // For the first 100 units: ₹3 per unit.
+    // For the next 200  ₹5 per unit.
+    // For units above 300: ₹10 per unit.
+    // Fixed surcharge: ₹50 added to the total bill."
+
+    let unit = 310;
+    let result="" ;
+    console.log(result)
+    if (unit >= 0 && unit <= 100) {
+        result = unit * 3
+    } else if (unit > 100 && unit <= 300) {
+        result = 300 + (unit - 100) * 5
+    } else {
+        result = 1300 + (unit - 300) * 10
+    }
+
+
+
+
+
+</script>
