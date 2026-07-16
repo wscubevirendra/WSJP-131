@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    font-family: "Inter", sans-serif;
+
+}
+
+header {
+    border: 2px solid #D0D5DD;
+}
+
+.subscribe-btn {
+    background-color: #6B46FF;
+    color: white;
+    border-radius: 9px;
+}
+
+#navbarSupportedContent input {
+    min-width: 350px !important;
+
+}
+
+#hero_section button:nth-child(1){
+    background-color: #F9F5FF;
+    color: #6B46FF;
+}
+
+#hero_section h2{
+    font-size: clamp(25px,5vw,60px);
+}

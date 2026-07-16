@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+</head>
+<body>
+    <!-- Header Start -->
+    <header class="container-fluid px-0">
+        <div class="demo-section  sticky top-0">
+
+
+            <nav class="navbar navbar-expand-lg navbar-dark navbar-modern">
+                <div class="container">
+                    <a class="navbar-brand logo" href="#">
+                        <i class="fas fa-code text-primary"></i>
+                        Foody
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav4">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarNav4">
+                        <ul class="navbar-nav ms-auto gap-4">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Recipes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- Header End -->
+    <section id="slider">
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://images.pexels.com/photos/19841011/pexels-photo-19841011.jpeg"
+                        class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.pexels.com/photos/11069351/pexels-photo-11069351.jpeg"
+                        class="d-block w-100" alt="...">
+                </div>
+
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+
+
+    <section>
+        <h2 class="text-center fs-1 my-4 text-primary">Food from heart. Made with love.</h2>
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card" style="background-image: url('https://cdn.dummyjson.com/recipe-images/1.webp');">
+                        <h3>Italian</h3>
+
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card" style="background-image: url('http://cdn.dummyjson.com/recipe-images/14.webp');">
+                        <h3>Pakistani</h3>
+
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card" style="background-image: url('https://cdn.dummyjson.com/recipe-images/16.webp');">
+                        <h3>Japanese</h3>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card" style="background-image: url('https://cdn.dummyjson.com/recipe-images/22.webp');">
+                        <h3>Indian</h3>
+
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card" style="background-image: url('https://cdn.dummyjson.com/recipe-images/26.webp');">
+                        <h3>Turkish</h3>
+
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card" style="background-image: url('https://cdn.dummyjson.com/recipe-images/22.webp');">
+                        <h3>Indian</h3>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="testimonial-carousel">
+        <div class="container">
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="testimonial-card text-center">
+                            <img src="https://i.pravatar.cc/150?img=1" alt="Client 1" class="testimonial-img mb-4">
+                            <p class="lead mb-4">"This product has completely transformed the way I work. It's
+                                intuitive,
+                                powerful, and a game-changer for my productivity!"</p>
+                            <h5 class="fw-bold mb-1">Sarah Johnson</h5>
+                            <p class="text-muted">Marketing Director</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="testimonial-card text-center">
+                            <img src="https://i.pravatar.cc/150?img=2" alt="Client 2" class="testimonial-img mb-4">
+                            <p class="lead mb-4">"I've tried many similar products, but this one stands out. The
+                                attention
+                                to detail and customer support are unmatched."</p>
+                            <h5 class="fw-bold mb-1">Michael Chen</h5>
+                            <p class="text-muted">Software Engineer</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="testimonial-card text-center">
+                            <img src="https://i.pravatar.cc/150?img=3" alt="Client 3" class="testimonial-img mb-4">
+                            <p class="lead mb-4">"This solution has streamlined our processes and improved team
+                                collaboration. It's been a fantastic investment for our company."</p>
+                            <h5 class="fw-bold mb-1">Emily Rodriguez</h5>
+                            <p class="text-muted">Project Manager</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Start -->
+    <footer class="footer text-center">
+        <div class="container">
+            <p>Copyright &copy; 2024. All rights reserved.</p>
+            <p>Designed with <span class="text-danger">&hearts;</span> by Your Name</p>
+        </div>
+    </footer>
+
+
+
+    <!-- Footer End -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
