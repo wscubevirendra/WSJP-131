@@ -27,8 +27,7 @@ export const create = async (req, res) => {
         if (room) {
             return sendConflict(res, "Room already exists");
         }
-        const imageUrl = req.file.path; // Cloudinary's final secure URL
-        // Create category
+        const imageUrl = req.file ? req.file.path : '';
         await RoomModel.create({
             name,
             slug,

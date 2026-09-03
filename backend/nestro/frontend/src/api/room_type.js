@@ -17,6 +17,23 @@ async function fetchCategory() {
     }
 }
 
+async function fetchRoom() {
+    try {
+        const response = await client.get("room-type");
+        if (response.data.success) {
+            return response.data
+        }
+
+    } catch (error) {
+        return {
+            message: "Internal Server Error",
+            category: [],
+            success: false
+        }
+
+    }
+}
+
 async function fetchCategoryById(id) {
     try {
         const response = await client.get(`category/${id}`);
@@ -34,4 +51,4 @@ async function fetchCategoryById(id) {
     }
 }
 
-export {fetchCategory,fetchCategoryById}
+export {fetchCategory,fetchCategoryById,fetchRoom}

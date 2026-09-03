@@ -5,11 +5,13 @@ import mongoose from 'mongoose';
 import cors from "cors"
 import categoryRouter from './routers/categoryRouter.js';
 import roomRouter from './routers/roomRouter.js';
+import productRouter from './routers/productRouter.js';
 const server = express();
 server.use(express.json());
 server.use(cors({ origin: "http://localhost:3000" }))
 server.use("/api/category", categoryRouter);
 server.use("/api/room-type", roomRouter);
+server.use("/api/product", productRouter);
 
 
 
