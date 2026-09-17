@@ -46,7 +46,14 @@ export const create = async (req, res) => {
 // GET ALL CATEGORIES
 export const read = async (req, res) => {
     try {
-        const room = await RoomModel.find();
+        const query = req.query;
+        const queryFilter = {};
+        const limit = query.limit ? Number(query.limit) : 0
+
+        if (query.status) {
+            queryFilter.status = query.status == "true"
+        }
+        const room = await RoomModel.find(queryFilter).limit(limit);
 
         return res.status(200).json({
             message: "Room data found",

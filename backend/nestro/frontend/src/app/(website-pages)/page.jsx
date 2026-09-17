@@ -1,7 +1,10 @@
+import CategoryGrid from '@/components/website/home/CategoryGrid'
 import React from 'react'
 
 export default function homePage() {
   return (
-    <div>Website Home Page</div>
+   <>
+   <CategoryGrid/>
+   </>
   )
 }

@@ -8,19 +8,95 @@ import {
     sendSuccess
 } from "../utils/response.js";
 import ProductModel from "../models/product.model.js";
-
-
+import CategoryModel from "../models/category.model.js";
+import RoomModel from "../models/room.model.js";
 
 // CREATE CATEGORY
 // GET ALL CATEGORIES
 export const read = async (req, res) => {
     try {
-        const product = await ProductModel.find();
+        const query = req.query;
+        const queryFilter = {};
+        const sortFilter = {};
+        const limit = query.limit ? Number(query.limit) : 10;
+        const page = query.page ? Number(query.page) : 1;
+        const skip = (page - 1) * limit
 
+        if (query.stock) {
+            queryFilter.stock = query.stock == "true"
+        }
+        if (query.bestseller) {
+            queryFilter.bestSeller = query.bestseller == "true"
+        }
+        if (query.status) {
+            queryFilter.status = query.status == "true"
+        }
+
+        if (query.featured) {
+            queryFilter.featured = query.featured == "true"
+        }
+
+        if (query.newArrival) {
+            queryFilter.newArrival = query.newArrival == "true"
+        }
+
+        if (query.category) {
+            // "chair,sofa" -> ["chair", "sofa"]
+            const categoryArray = query.category.split(",");
+
+            // slug -> MongoDB _id
+            const categories = await CategoryModel.find({
+                slug: { $in: categoryArray }
+            }).select("_id");
+
+            // Product filter
+            queryFilter.categoryId = {
+                $in: categories.map((category) => category._id)
+            };
+        }
+
+        if (query.room_type) {
+            // "chair,sofa" -> ["chair", "sofa"]
+            const roomArray = query.room_type.split(",");
+
+            // slug -> MongoDB _id
+            const rooms = await RoomModel.find({
+                slug: { $in: roomArray }
+            }).select("_id");
+
+            // Product filter
+            queryFilter.roomId = {
+                $in: rooms.map((r) => r._id)
+            };
+        }
+
+        if (query.min_price && query.max_price) {
+            queryFilter.salePrice = {
+                $gte: Number(query.min_price),
+                $lte: Number(query.max_price),
+            }
+        }
+
+        if (query.sort) {
+            if (query.sort === "asc") {
+                sortFilter.salePrice = 1
+            } else if (query.sort == "desc") {
+                sortFilter.salePrice = -1
+            } else{
+                sortFilter.createdAt = -1
+            }
+
+        }
+
+
+        const product = await ProductModel.find(queryFilter).skip(skip).sort(sortFilter).limit(limit);
+        const countProduct = await ProductModel.countDocuments({ status: true });
         return res.status(200).json({
             message: "Product data found",
             success: true,
-            product
+            product,
+            pages: Math.ceil(countProduct / limit),
+            total: countProduct
         });
 
     } catch (error) {
@@ -172,7 +248,7 @@ export const update = async (req, res) => {
 export const create = async (req, res) => {
     try {
         console.log(req.body)
-       
+
         const imageUrl = req.file?.path || "";
 
         const {
@@ -237,7 +313,8 @@ export const updateFlag = async (req, res) => {
 
         const { id } = req.params;
         const { field } = req.body;
-        console.log(id, field)
+        console.log(field)
+
         const allowedFields = [
             "stock",
             "featured",
@@ -265,3 +342,28 @@ export const updateFlag = async (req, res) => {
         sendServerError(res);
     }
 };
+
+
+export const addImages = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const images = Array.isArray(req.files) ? req.files.map((img) => img.path) : [];
+
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return sendBadRequest(res);
+        }
+
+        const product = await ProductModel.findById(id)
+        if (!product) {
+            return sendNotFound(res, "Product not found");
+        }
+
+        product.images.push(...images);
+        await product.save();
+        return sendSuccess(res);
+
+
+    } catch (error) {
+        sendServerError(res);
+    }
+}

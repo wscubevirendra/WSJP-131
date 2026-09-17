@@ -1,8 +1,18 @@
 import { client } from "@/utils/helper";
 
-async function fetchCategory() {
+async function fetchCategory({ status = null, limit = null } = {}) {
     try {
-        const response = await client.get("category");
+        const searchParams = new URLSearchParams();
+        if (status !== null) {
+            searchParams.append("status", status)
+        }
+
+        if (limit !== null) {
+            searchParams.append("limit", limit)
+        }
+        console.log(searchParams, "category API")
+
+        const response = await client.get(`category?${searchParams.toString()}`);
         if (response.data.success) {
             return response.data
         }
@@ -34,4 +44,4 @@ async function fetchCategoryById(id) {
     }
 }
 
-export {fetchCategory,fetchCategoryById}
+export { fetchCategory, fetchCategoryById }

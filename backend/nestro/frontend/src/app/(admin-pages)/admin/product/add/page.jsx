@@ -226,10 +226,10 @@ export default function AddProductUI() {
             );
 
             // ONLY thumbnail
-            formData.append("image", thumbnail);
+            formData.append("thumbnail", thumbnail);
 
             // API
-            const response = await client.post("product/create")
+            const response = await client.post("product/create",formData)
             if (!response.success) {
                 throw new Error(
                     data.message || "Failed to create product"

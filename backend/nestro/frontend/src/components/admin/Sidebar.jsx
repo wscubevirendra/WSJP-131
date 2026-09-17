@@ -28,12 +28,12 @@ const menuItems = [
   {
     name: "Products",
     icon: <FiBox />,
-    path: "/admin/products",
+    path: "/admin/product",
   },
   {
     name: "Rooms",
     icon: <FiMonitor />,
-    path: "/admin/rooms",
+    path: "/admin/room-type",
   },
   {
     name: "Colors",

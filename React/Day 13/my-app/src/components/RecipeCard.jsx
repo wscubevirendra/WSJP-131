@@ -1,8 +1,9 @@
 import { FaClock, FaStar } from "react-icons/fa";
 import { IoPeople } from "react-icons/io5";
 import Link from "next/link";
+import CartButton from "./CartButton";
 
-export default function RecipeCard({recipe}) {
+export default function RecipeCard({ recipe }) {
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl duration-300 group">
 
@@ -61,13 +62,7 @@ export default function RecipeCard({recipe}) {
 
         </div>
 
-        {/* Button */}
-        <Link href={`/menu/${recipe.id}`}>
-           <button className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-xl font-semibold duration-300">
-          View Recipe
-        </button>
-        </Link>
-     
+        <CartButton />
 
       </div>
 
