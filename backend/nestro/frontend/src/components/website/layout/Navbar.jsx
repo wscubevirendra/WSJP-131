@@ -11,6 +11,8 @@ import {
   FiX,
 } from "react-icons/fi";
 import { lstoCart } from "@/redux/features/cartSlice";
+import { client } from "@/utils/helper";
+import { useRouter } from "next/navigation";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -24,13 +26,47 @@ const iconBtn =
   "w-9 h-9 rounded-full flex items-center justify-center text-[#444444] hover:bg-[#F0EBE3] transition-all";
 
 export default function Navbar() {
+  const router = useRouter()
+  const [user, setUser] = useState(null)
   const dispacher = useDispatch();
   const store = useSelector((store) => store.cart)
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const getProfile = async () => {
+    try {
+      const response = await client.get("user/get-me");
+      if (response.data.success) {
+        setUser(response.data.user)
+      }
+
+    } catch (error) {
+      setUser(null)
+    }
+  }
+
   useEffect(() => {
-    dispacher(lstoCart())
+    dispacher(lstoCart());
+    getProfile()
   }, [])
+
+
+  const logoutUser = async () => {
+    try {
+      const response = await client.post(
+        "user/logout",
+      );
+
+      if (response.data.success) {
+        // Clear Redux/user state if required
+        router.push("/signin");
+      }
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+
 
 
   return (
@@ -56,12 +92,27 @@ export default function Navbar() {
           </Link>
         ))}
 
-        <Link
-          href="/signin"
-          className="text-[11px] tracking-[0.06em] rounded-md px-3 py-1.5 text-[#6B7280] hover:bg-[#F0EBE3] hover:text-[#8B5E3C] transition-colors"
-        >
-          Sign In
-        </Link>
+        {
+          user == null
+            ?
+            <Link
+              href="/signin"
+              className="text-[11px] tracking-[0.06em] rounded-md px-3 py-1.5 text-[#6B7280] hover:bg-[#F0EBE3] hover:text-[#8B5E3C] transition-colors"
+            >
+              Sign In
+            </Link>
+            :
+            <button
+              onClick={logoutUser}
+              className="text-[11px] tracking-[0.06em] rounded-md px-3 py-1.5 text-[#6B7280] hover:bg-[#F0EBE3] hover:text-[#8B5E3C] transition-colors"
+            >
+              LogOut
+            </button>
+
+
+        }
+
+
       </nav>
 
       {/* Desktop Icons */}
