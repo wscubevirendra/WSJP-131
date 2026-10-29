@@ -1,4 +1,6 @@
 import UserModel from "../models/user.model.js";
+import Cryptr from "cryptr";
+const cryptr = new Cryptr(process.env.SECRET_KEY);
 import {
     generateOtp,
     generateToken,
@@ -6,6 +8,23 @@ import {
 } from "../utils/helper.js";
 import { sendBadRequest, sendConflict, sendServerError, sendSuccess } from '../utils/response.js'
 import sendOtpMail from "../utils/sendOtpMail.js";
+
+export const addAddress = async (req, res) => {
+    try {
+        const userId = "6ab5f0dad8eedfa180e43be0";
+        const address = req.body;
+
+        const user = await UserModel.findById({ _id: userId });
+        user.addresses.push(address);
+        await user.save();
+
+        res.json({ success: true, addresses: user.addresses });
+    } catch (err) {
+
+        res.status(500).json({ error: err.message });
+    }
+};
+
 
 
 const logout = async (req, res) => {
@@ -69,7 +88,7 @@ export const register = async (req, res) => {
         const user = await UserModel.create({
             name,
             email: email.toLowerCase(),
-            password,
+            password: cryptr.encrypt(password),
             isVerified: false,
             otp,
             otpExpire
@@ -214,8 +233,10 @@ export const login = async (req, res) => {
         // Already verified user
         if (!user) return sendConflict(res, "Please create your accound");
         if (!user.isVerified) return sendConflict(res, "Please verify your accound");
+        const decPassword = cryptr.decrypt(user.password)
+        console.log(decPassword)
 
-        if (user.password !== password) return sendBadRequest(res, "Incorect password")
+        if (password !== decPassword) return sendBadRequest(res, "Incorect password")
         const token = generateToken(user._id)
         res.cookie('token', token, {
             maxAge: 30 * 24 * 60 * 60 * 1000,       // Cookie lifespan in milliseconds (e.g., 900,000ms = 15 minutes)
@@ -229,3 +250,20 @@ export const login = async (req, res) => {
         return sendServerError(res)
     }
 };
+
+
+export const read = async (req, res) => {
+    try {
+        const user = await UserModel.find();
+        res.status(200).json({
+            message: "users find",
+            sucess: true,
+            user
+        })
+
+    } catch (error) {
+
+    }
+
+}
+

@@ -3,50 +3,104 @@
 import Link from "next/link";
 import { Mail, Lock, ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { toast } from 'sonner';
-import { slugify, client } from "@/utils/helper";
+import { toast } from "sonner";
+import { client } from "@/utils/helper";
 
 const SignIn = () => {
     const router = useRouter();
-    let cart = JSON.parse(localStorage.getItem("cart"));
-    if (cart && cart.items?.length !== 0) {
-        cart = cart.items.map((data) => {
-            return {
-                id: data.id,
-                qty: data.qty
-            }
-        })
-    }
 
-    const submitHanlder = (e) => {
+    const submitHanlder = async (e) => {
         e.preventDefault();
+
         const data = {
             email: e.target.email.value,
             password: e.target.password.value,
-        }
+        };
 
-        client.post(`user/login`, data).then(
-            (response) => {
-                if (response.data.success) {
-                    toast.success(response.data.message);
-                    client.post("cart/sync", {
-                        items: JSON.stringify(cart)
-                    }).then((response) => {
-                        console.log(response)
-                    }).catch(() => {
-                        toast.error(error.response?.data.message || "Internal Server Error")
-                    })
+        try {
+            // 1. Login
+            const response = await client.post("user/login", data);
 
-                    // router.push('/')
+            if (!response.data.success) {
+                toast.error(response.data.message);
+                return;
+            }
+
+            toast.success(response.data.message);
+
+            // 2. Get cart from localStorage
+            let localCart = [];
+
+            try {
+                const storedCart = localStorage.getItem("cart");
+
+                if (storedCart) {
+                    const parsedCart = JSON.parse(storedCart);
+
+                    if (Array.isArray(parsedCart?.items)) {
+                        localCart = parsedCart.items.map((item) => ({
+                            productId: item.id,
+                            qty: item.qty,
+                        }));
+                    }
                 }
+            } catch (error) {
+                console.log("Invalid cart data:", error);
+                localCart = [];
             }
-        ).catch(
-            (error) => {
-                toast.error(error.response?.data.message || "Internal Server Error")
-            }
-        )
 
-    }
+            // 3. Sync cart with backend
+            const cartResponse = await client.post("cart/sync", {
+                items: JSON.stringify(localCart),
+            });
+
+            if (cartResponse.data.success) {
+                const cartData = cartResponse.data.cart;
+
+                let original = 0;
+                let final = 0;
+
+                const updateCart = cartData.items.map((item) => {
+                    const {
+                        _id,
+                        salePrice,
+                        originalPrice,
+                        thumbnail,
+                    } = item.productId;
+
+                    original += Number(originalPrice) * Number(item.qty);
+                    final += Number(salePrice) * Number(item.qty);
+
+                    return {
+                        id: _id,
+                        salePrice,
+                        originalPrice,
+                        thumbnail,
+                        qty: item.qty,
+                    };
+                });
+
+                // 4. Update localStorage
+                localStorage.setItem(
+                    "cart",
+                    JSON.stringify({
+                        items: updateCart,
+                        original_total: original,
+                        final_total: final,
+                    })
+                );
+            }
+
+            // 5. Redirect
+            router.push("/");
+        } catch (error) {
+            toast.error(
+                error.response?.data?.message ||
+                "Internal Server Error"
+            );
+        }
+    };
+
     return (
         <div className="min-h-screen bg-[#FAF9F7] flex items-center justify-center px-4">
             <div className="w-full max-w-md">
@@ -93,6 +147,7 @@ const SignIn = () => {
                                     type="email"
                                     name="email"
                                     placeholder="you@example.com"
+                                    required
                                     className="w-full h-12 pl-10 pr-4 rounded-lg border border-[#E8E0D5] outline-none text-sm focus:border-[#8B5E3C] focus:ring-1 focus:ring-[#8B5E3C]"
                                 />
                             </div>
@@ -123,6 +178,7 @@ const SignIn = () => {
                                     type="password"
                                     name="password"
                                     placeholder="Enter your password"
+                                    required
                                     className="w-full h-12 pl-10 pr-4 rounded-lg border border-[#E8E0D5] outline-none text-sm focus:border-[#8B5E3C] focus:ring-1 focus:ring-[#8B5E3C]"
                                 />
                             </div>

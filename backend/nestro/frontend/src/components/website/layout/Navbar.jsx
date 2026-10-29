@@ -36,7 +36,8 @@ export default function Navbar() {
     try {
       const response = await client.get("user/get-me");
       if (response.data.success) {
-        setUser(response.data.user)
+        setUser(response.data.user) 
+        //user manage by redux
       }
 
     } catch (error) {

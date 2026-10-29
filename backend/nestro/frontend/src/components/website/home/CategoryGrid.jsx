@@ -11,7 +11,7 @@ export default async function CategoryGrid() {
                 {
                     response?.category.map((item) => {
                         return (
-                            <Link href={`/store?category=${item.slug}`}>
+                            <Link key={item._id} href={`/store?category=${item.slug}`}>
                                 <div className='flex flex-col  gap-1'>
                                     <div className='w-[100px] h-[100px]'>
                                         <img className='rounded-full w-full h-full border' src={item.image} alt="" />

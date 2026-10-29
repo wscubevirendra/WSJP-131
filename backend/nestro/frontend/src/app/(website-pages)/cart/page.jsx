@@ -36,7 +36,7 @@ export default function CartPage() {
                                 :
                                 cart?.items.map((item) => (
                                     <div
-                                        key={item._id}
+                                        key={item.id}
                                         className="flex flex-col gap-5 rounded-2xl border border-[#E8E0D5] bg-white p-4 sm:flex-row sm:items-center"
                                     >
                                         {/* Product Image */}

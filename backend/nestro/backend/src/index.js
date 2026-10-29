@@ -9,6 +9,7 @@ import roomRouter from './routers/roomRouter.js';
 import productRouter from './routers/productRouter.js';
 import userRouter from './routers/userRouter.js';
 import cartRouter from './routers/cartRouter.js';
+import orderRouter from './routers/orderRouter.js';
 const server = express();
 server.use(express.json());
 server.use(cookieParser());
@@ -18,6 +19,7 @@ server.use("/api/room-type", roomRouter);
 server.use("/api/product", productRouter);
 server.use("/api/user", userRouter);
 server.use("/api/cart", cartRouter);
+server.use("/api/order", orderRouter);
 
 
 mongoose.connect(process.env.DATABASE_URL).then(() => {

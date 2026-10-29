@@ -3,6 +3,8 @@ import '../globals.css'
 import { Inter } from 'next/font/google'
 import Footer from '@/components/website/layout/Footer'
 import StoreProvider from '@/redux/StoreProvider'
+import { Toaster, toast } from 'sonner'
+
 
 
 const inter = Inter({
@@ -21,6 +23,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${inter.className} min-h-screen bg-[#F8F5F1]`}>
         <StoreProvider>
+            <Toaster  position="top-right"  richColors />
           <Navbar />
           <main>{children}</main>
           <Footer />

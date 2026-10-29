@@ -8,6 +8,10 @@ export default function CartBtn({ product = {} }) {
     const dispatcher = useDispatch()
 
     const cartHandler = () => {
+        // if(user !==null){
+        //     //add-to-cart
+        // }
+
         dispatcher(addtoCart({
             name: product.name,
             salePrice: product.salePrice,
